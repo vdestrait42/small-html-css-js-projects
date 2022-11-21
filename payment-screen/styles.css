@@ -1,0 +1,165 @@
+:root {
+  --border-radius: 5px;
+}
+
+html {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  height: 100%;
+  background-image: url(img/background.jpg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Roboto, sans-serif;
+  color: rgb(43, 43, 43);
+}
+
+dialog {
+  width: 40%;
+  min-width: 300px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  padding-bottom: 0;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0;
+  box-shadow: 0 22px 50px rgba(14, 21, 47, 0.2),
+    0 8px 20px rgba(14, 21, 47, 0.2);
+}
+
+.modal__stepper {
+  list-style: none;
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 6px;
+  padding: 0;
+  margin: 24px 0;
+}
+
+.modal__stepper__step {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgb(195, 195, 195);
+}
+
+.modal__stepper__step--active {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgb(133, 133, 133);
+}
+
+.payment label img {
+  width: 10%;
+}
+
+.payment fieldset {
+  border: none;
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 0;
+  margin: 0;
+}
+
+.payment legend {
+  text-align: center;
+  font-size: 24px;
+  color: rgb(43, 43, 43);
+  margin: 24px 0;
+}
+
+.payment__option {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  border-top: 1px solid rgb(217, 217, 217);
+  padding: 12px 0;
+  transition: background 0.15s ease-in-out;
+}
+
+.payment__option,
+.payment__option * {
+  cursor: pointer;
+}
+
+.payment__option:hover {
+  background-color: rgb(240, 240, 240);
+}
+
+.payment__option label {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  color: rgb(195, 195, 195);
+}
+
+.payment__option input {
+  width: 20%;
+  appearance: none;
+  margin: 0 24px;
+}
+
+.payment__option--visa input {
+  content: url(img/visa.svg);
+}
+
+.payment__option--mastercard input {
+  content: url(img/mastercard.svg);
+}
+
+.payment__option--maestro input {
+  content: url(img/maestro.svg);
+}
+
+.payment__option--selected label {
+  color: rgb(43, 43, 43);
+}
+
+.payment__option .check {
+  visibility: hidden;
+  margin: 0 16px;
+}
+
+.payment__option--selected .check {
+  visibility: visible;
+}
+
+.payment__button {
+  width: 100%;
+  background-color: rgb(56, 131, 218);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: white;
+  border: none;
+  font-size: 16px;
+  padding: 20px 0 20px 0;
+  position: relative;
+  transition: background 0.15s ease-in-out;
+}
+
+.payment__button:hover {
+  background-color: rgb(75, 150, 235);
+}
+
+.payment__button:active {
+  top: 1px;
+}
+
+.payment__button img {
+  margin-left: 8px;
+}

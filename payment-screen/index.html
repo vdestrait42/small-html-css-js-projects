@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Payment Screen</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <dialog class="modal" open>
+    <ol class="modal__stepper">
+      <li class="modal__stepper__step modal__stepper__step--active"></li>
+      <li class="modal__stepper__step"></li>
+      <li class="modal__stepper__step"></li>
+    </ol>
+    <form class="payment">
+      <fieldset>
+        <legend>PAYMENT METHOD</legend>
+        <div class="payment__option payment__option--visa">
+          <label>
+            <input type="radio" name="payment-method" value="visa">
+            VISA
+          </label>
+          <img class="check" src="img/check.svg" alt="Check">
+        </div>
+        <div class="payment__option payment__option--mastercard payment__option--selected">
+          <label>
+            <input type="radio" name="payment-method" value="mastercard">
+            MASTERCARD
+          </label>
+          <img class="check" src="img/check.svg" alt="Check">
+        </div>
+        <div class="payment__option payment__option--maestro">
+          <label>
+            <input type="radio" name="payment-method" value="maestro">
+            MAESTRO
+          </label>
+          <img class="check" src="img/check.svg" alt="Check">
+        </div>
+      </fieldset>
+      <button class="payment__button" type="submit">
+        NEXT STEP
+        <img src="img/arrow.svg" alt="Arrow">
+      </button>
+    </form>
+  </dialog>
+</body>
+
+
+</html>

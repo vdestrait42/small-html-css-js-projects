@@ -1,0 +1,102 @@
+:root {
+  --blue: #4e67f2;
+  --blue-light: #a5c7f9;
+  --grey: #888888;
+  --grey-light: #d8dff06d;
+  --white: #f5f7ff;
+  --border-radius: 4px;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  background-color: var(--blue-light);
+  padding: 0;
+  margin: 0;
+}
+
+.plans {
+  background-color: var(--white);
+  padding: 1rem;
+  margin: 2rem;
+  max-width: 350px;
+  border-radius: var(--border-radius);
+  margin: 3rem auto;
+  box-shadow: 0 22px 50px rgba(14, 21, 47, 0.2),
+    0 8px 20px rgba(14, 21, 47, 0.2);
+}
+
+.plans ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.plans figure {
+  text-align: center;
+  margin: 0;
+  padding: 2rem;
+  transition: background 0.2s ease-in-out;
+}
+
+.plans figure:hover {
+  background-color: var(--grey-light);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+.plans figure img {
+  width: 8vh;
+  margin-bottom: 1rem;
+}
+
+.plans figcaption h2 {
+  color: var(--blue);
+  letter-spacing: 0.2em;
+}
+
+.plans figcaption p {
+  color: var(--grey);
+  max-width: 230px;
+  margin: auto;
+  font-size: 0.9rem;
+}
+
+.plans figcaption h3 {
+  color: var(--blue);
+  font-weight: 500;
+}
+
+.plans figcaption h3 span {
+  font-size: 2.5rem;
+}
+
+@media (min-width: 550px) {
+  .plans {
+    max-width: none;
+    width: fit-content;
+    padding-bottom: 1rem;
+  }
+
+  .plans ul {
+    display: flex;
+  }
+
+  .plans figure {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .plans figcaption h3 {
+    margin-bottom: 0;
+  }
+}
