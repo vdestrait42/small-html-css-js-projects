@@ -44,39 +44,38 @@ h1 {
 }
 
 .account {
+  width: 42px;
+  height: 42px;
   position: relative;
 }
 
-.account__bg {
-  width: 52px;
-  height: 52px;
-  background-color: rgb(233, 233, 233);
+.account::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
   border-radius: 50%;
+  box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.06);
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
 }
 
-.account:hover .account__bg {
+.account:hover::after {
   opacity: 1;
+  cursor: pointer;
 }
 
-.account > img {
+img {
   border: 1px solid rgb(218, 218, 218);
   border-radius: 50%;
   padding: 8px;
-  background-color: rgb(250, 250, 250);
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
 }
 
 p {
   font-size: 14px;
   color: rgb(159, 159, 159);
-  margin-top: 8px;
 }
 
 table {
