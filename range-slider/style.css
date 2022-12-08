@@ -1,0 +1,157 @@
+:root {
+  --bg-dark-grey: #262529;
+  --gold: #ffc700;
+  --pink: #ea346f;
+  --pink-transparent: #ea346e43;
+  --prog-bar-grey: #4d4c53;
+  --button-grey: #333139;
+  --button-grey-light: #494653;
+  --slide-value-pct: 50;
+  --transition-duration: 0.3s;
+}
+
+html {
+  box-sizing: border-box;
+  background-color: var(--bg-dark-grey);
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+.container {
+  max-width: fit-content;
+  height: fit-content;
+  background-color: var(--bg-dark-grey);
+  box-shadow: 0px 0px 250px black;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2.5rem;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 2.5rem;
+  border-radius: 12px;
+}
+
+p {
+  color: var(--gold);
+  font-size: 3rem;
+  margin: 0;
+}
+
+sup {
+  font-size: 2rem;
+}
+
+input[type="range"] {
+  width: 340px;
+  cursor: ew-resize;
+  appearance: none;
+  background: transparent;
+  position: relative;
+}
+
+input[type="range"]::after {
+  content: "";
+  position: absolute;
+  width: calc(var(--slide-value-pct) * 1%);
+  height: 100%;
+  top: 0;
+  left: 0;
+  box-shadow: 0px 0px 10px var(--pink);
+  z-index: 1000;
+  opacity: 0;
+}
+
+input[type="range"]::before {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 0;
+  left: calc(var(--slide-value-pct) * 1%);
+  border-radius: 50%;
+  height: 24px;
+  width: 24px;
+  border-radius: 16px;
+  margin-top: -8px;
+  margin-left: calc(var(--slide-value-pct) / 50 * -12px);
+  box-shadow: 0px 0px 0px 7px var(--pink-transparent);
+  opacity: 0;
+}
+
+input[type="range"]:active::after {
+  opacity: 1;
+  transition: opacity var(--transition-duration);
+}
+
+input[type="range"]:active::before {
+  opacity: 1;
+  transition: opacity var(--transition-duration);
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  border-radius: 8px;
+  height: 8px;
+  background-image: linear-gradient(
+    to right,
+    var(--pink) calc(var(--slide-value-pct) * 1%),
+    var(--prog-bar-grey) calc(var(--slide-value-pct) * 1%)
+  );
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background: var(--pink);
+  height: 24px;
+  width: 24px;
+  border-radius: 16px;
+  margin-top: -8px;
+}
+
+button {
+  background: var(--button-grey);
+  text-transform: uppercase;
+  color: white;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  font-weight: 600;
+  padding: 1em 2em;
+  border-radius: 30px;
+  letter-spacing: 3px;
+  transition: background var(--transition-duration);
+  position: relative;
+}
+
+button::after {
+  content: "Buy now";
+  width: 100%;
+  height: 100%;
+  background: var(--button-grey-light);
+  text-transform: uppercase;
+  position: absolute;
+  border-radius: 30px;
+  padding: 1em 2em;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition: opacity var(--transition-duration);
+}
+
+button:hover::after {
+  opacity: 1;
+}
