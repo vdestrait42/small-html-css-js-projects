@@ -1,0 +1,120 @@
+@font-face {
+  font-family: "Bebas Neue Book";
+  src: url(fonts/bebasneue-book-webfont.woff);
+}
+
+:root {
+  --bg-color: #2b2a30;
+  --time-pct: 100;
+  --timer-bg-radial-light: #3a393f;
+  --timer-bg-radial-dark: #17171a;
+  --color: hsl(calc(var(--time-pct) / 100 * 149), 100%, 32%);
+  --font-color: #e8eaef;
+  --gear-grey: #a3a2a2;
+  --selected-bg: rgb(227, 228, 233);
+}
+
+html {
+  box-sizing: border-box;
+  color: var(--font-color);
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: var(--bg-color);
+}
+
+.timer-screen {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(
+    circle at 50% 35%,
+    var(--timer-bg-radial-light),
+    var(--timer-bg-radial-dark)
+  );
+  border-radius: 50%;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.timer-screen::after {
+  content: "";
+  width: 420px;
+  height: 420px;
+  background: conic-gradient(
+    var(--color) 0% calc(var(--time-pct) * 1%),
+    black calc(var(--time-pct) * 1%)
+  );
+  transform: rotate(-180deg);
+  border-radius: 50%;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  margin-right: -10px;
+}
+
+.time {
+  font-family: "Bebas Neue Book";
+  font-size: 8rem;
+  margin-top: 0.8em;
+  margin-bottom: 0.1em;
+}
+
+.edit span {
+  border-bottom: 1px dotted var(--font-color);
+}
+
+.selected {
+  background: var(--font-color);
+  color: var(--timer-bg-radial-light);
+}
+
+.start,
+.stop {
+  font-family: Montserrat;
+  font-weight: 700;
+  font-size: 0.8em;
+  letter-spacing: 0.6em;
+  margin-right: -0.6em;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-bottom: 2em;
+}
+
+.gear,
+.check {
+  width: 24px;
+  cursor: pointer;
+}
+
+.gear svg,
+.check svg {
+  width: 100%;
+}
+
+.gear path,
+.check path {
+  fill: var(--gear-grey);
+}
+
+.gear:hover path,
+.check:hover path {
+  fill: var(--font-color);
+  transition: fill 0.3s;
+}
